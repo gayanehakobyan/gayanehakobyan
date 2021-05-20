@@ -1,2 +1,2 @@
 # gayanehakobyan
-decentral
+my project
