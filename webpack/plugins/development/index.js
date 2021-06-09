@@ -20,7 +20,14 @@ const arr = [
         "APP_NAME": JSON.stringify(configs.appName),
         "SITE_NAME": JSON.stringify(configs.siteName),
     }),
-    new HtmlWebpackPlugin({template: appRoot + "/html/index.html", chunksSortMode: "none"}),
+    new HtmlWebpackPlugin({template: appRoot + "/html/index.html", minify:{
+            collapseWhitespace: true,
+            removeComments: true,
+            removeRedundantAttributes: true,
+            removeScriptTypeAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            minifyJS: true
+        }}),
     new ScriptExtHtmlWebpackPlugin({
         defaultAttribute: "defer"
     }),
@@ -32,6 +39,6 @@ const arr = [
 ];
 
 
-console.log("array from plugins", arr)
+console.log("array from plugins")
 
 module.exports = arr;

@@ -23,11 +23,6 @@ module.exports = [
         use: [
             {
                 loader: "string-replace-loader",
-                options: {
-                    multiple: [
-                        {search: "", replace: config.appName}
-                    ]
-                }
             },
             {
                 loader: "html-loader",
@@ -39,4 +34,4 @@ module.exports = [
     }
 ];
 
-console.log("array from loaders", module)
+console.log("array from loaders")
