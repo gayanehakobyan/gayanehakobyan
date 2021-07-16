@@ -29,25 +29,30 @@ const LogIn: React.FunctionComponent<ILogInProps> = (props: ILogInProps) => {
     }
 
 
-    return <div>
-        <form>
-            <div>
-                <h1> Login </h1>
-                <div>
-                    <Input value ={email} placeholder ={"Email"} onChange = {(e) => setEmail(e.currentTarget.value)}/>
-                    <Input value = {password} placeholder ={"Password"} onChange = {(e) => setPassword(e.currentTarget.value)}/>
-                </div>
+    return <div className="auth-section">
+                <div className="auth-popap">
+                    <div className="auth-popap-header">
+                        <h1> Login </h1>
+                    </div>
+                    <form>
+                        <div>
+                            <div>
+                                <Input value ={email} placeholder ={"Email"} onChange = {(e) => setEmail(e.currentTarget.value)}/>
+                                <Input value = {password} placeholder ={"Password"} onChange = {(e) => setPassword(e.currentTarget.value)}/>
+                            </div>
 
-                <div>
-                    <Button
-                        type = "submit"
-                        text = "Submit"
-                        onClick = {signInHandler}
-                    />
+                            <div className="footer">
+                                <Button
+                                    type = "submit"
+                                    text = "Submit"
+                                    className='blue-btn'
+                                    onClick = {signInHandler}
+                                />
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </form>
-    </div>
+       </div>
 
 }
 

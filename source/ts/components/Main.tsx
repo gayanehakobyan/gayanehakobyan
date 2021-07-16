@@ -20,7 +20,54 @@ function App(props:IMainProps) {
         })
     }, [])
 
-console.log("mainuset", user)
+    function out(arr,number){
+        let defolt = false
+        let i = 0
+        for(;i<arr.length;i++){
+            if(arr[i] === number){
+                defolt = true
+                break
+            }
+        }
+        if(defolt === false){
+            arr.push(number)
+            return arr
+        }else{
+            for(let j = i;j<=i;j++){
+                arr[j] = arr[j+1]
+            }
+            arr.pop()
+        }
+        return arr
+    }
+
+
+    function removeOrAddItem(arr,number)
+    {
+        let isfindRemoveAbleItem = false
+        for(let i=0; i< arr.length; i++) {
+            if(arr[i] === number)
+            {
+                isfindRemoveAbleItem = true
+            }
+
+            if(isfindRemoveAbleItem){
+                if( i !== arr.length-1)
+                {
+                    arr[i] = arr[i+1]
+                } else {
+                    arr.pop();
+                }
+            }
+        }
+
+        if(!isfindRemoveAbleItem) {
+            arr.push(number)
+        }
+
+        return arr;
+    }
+    //console.log("mainuset", user)
     return (
         <div className="App">
             {

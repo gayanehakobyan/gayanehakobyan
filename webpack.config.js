@@ -1,7 +1,7 @@
 const path = require("path");
 const config = {};
 const TerserPlugin = require("terser-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+// const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const node_env = process.env.NODE_ENV
 
@@ -26,12 +26,13 @@ module.exports = {
     output: {
         path: path.join(__dirname, "build"),
         publicPath: "/",
-        filename: "source/[name].js?[hash]",
-        sourceMapFilename: "source/[name].chunk.js.map?[hash]",
-        chunkFilename: "source/[name].chunk.js?[hash]",
+        filename: "source/[name][fullhash].js?[contentHash]",
+        sourceMapFilename:  "[file].map[query]",
+        chunkFilename: "source/[name].chunk.js?[chunkhash]",
         pathinfo: false
     },
     mode: node_env,
+    target:"web",
     module: {
         rules: loaders
     },
@@ -47,6 +48,7 @@ module.exports = {
         clientLogLevel: "none",
         publicPath: publicPath,
         progress: true,
+        writeToDisk: true,
         headers: {
             "Access-Control-Allow-Origin": "*",
             "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
@@ -68,7 +70,7 @@ module.exports = {
         minimize: DEVELOPMENT,
         minimizer: [
             new TerserPlugin({
-                sourceMap: true,
+                //sourceMap: true,
                 terserOptions: {
                     parse: {
                         ecma: 8
@@ -89,9 +91,8 @@ module.exports = {
                     }
                 },
                 parallel: true,
-                cache: true
+                //cache: true
             }),
-            new OptimizeCSSAssetsPlugin({})
         ],
         splitChunks: {
             name: false

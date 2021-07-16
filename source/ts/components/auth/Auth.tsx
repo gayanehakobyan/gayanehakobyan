@@ -24,13 +24,13 @@ const Auth: React.FunctionComponent<IAuthProps> = (props: IAuthProps) => {
     }
 
 
-    return <div>
+    return <div >
         {
             logIn !== null ? logIn ? <LogIn setUser={setUser}/> : <SignUp setUser={setUser}/> : (
-                <>
+                <div className="auth-section">
                     <Button onClick = {() => setLogIn(true)} text={"LogIn"} type="button"/>
-                    <Button  onClick = {() => setLogIn(false)}  text={"SignIn"} type="button"/>
-                </>
+                    <Button  onClick = {() => setLogIn(false)}  text={"Sign Up"} type="button"/>
+                </div>
             )
         }
 

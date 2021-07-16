@@ -18,6 +18,31 @@ module.exports = [
         ]
     },
     {
+        test: /\.scss$/,
+        include: [
+            path.resolve(__dirname, `${appRoot}/source/sass`),
+            path.resolve(__dirname, `${appRoot}/node_modules`)
+        ],
+        use: [
+            {
+                loader: "style-loader"
+            },
+            {
+                loader: "css-loader",
+                options: {
+                    sourceMap: true,
+                    // importLoaders: 2
+                }
+            },
+            {
+                loader: "sass-loader",
+                options: {
+                    sourceMap: true
+                }
+            }
+        ]
+    },
+    {
         test: /\.html$/,
         include: path.resolve(__dirname, appRoot + "/source/html"),
         use: [

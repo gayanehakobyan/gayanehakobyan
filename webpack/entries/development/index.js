@@ -1,5 +1,5 @@
 const appRoot = "./";
 
-module.exports = [
-    appRoot + "ts/App.tsx",
-];
+module.exports = {
+    main:[ appRoot + "ts/App.tsx"]
+};

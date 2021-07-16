@@ -1,4 +1,5 @@
 export interface IUserInfoProps {
     setUser: (value) => void;
-    user:any
+    user:any;
+    list:any[]
 }
