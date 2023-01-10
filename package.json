@@ -34,7 +34,7 @@
     "copy-webpack-plugin": "8.1.1",
     "css-loader": "5.2.4",
     "firebase": "^8.6.1",
-    "firebase-admin": "^9.8.0",
+    "firebase-admin": "^11.4.1",
     "firebase-functions": "^3.14.1",
     "html-loader": "2.1.2",
     "html-webpack-plugin": "5.3.1",
